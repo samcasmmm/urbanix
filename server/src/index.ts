@@ -13,6 +13,9 @@ app.get('/', (req: Request, res: Response) => {
 app.get('/health', (req: Request, res: Response) => {
   res.json({ message: 'health is okay' });
 });
+app.get('/v1/health', (req: Request, res: Response) => {
+  res.json({ message: 'v1 health is okay' });
+});
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
