@@ -7,7 +7,7 @@ const app: Express = express();
 const port = process.env.PORT || 3030;
 
 app.get('/', (req: Request, res: Response) => {
-  res.json({ message: 'Server is Runing' });
+  res.json({ message: 'Server is Runing changed' });
 });
 
 app.listen(port, () => {
