@@ -1,5 +1,4 @@
 import express, { Application, Request, Response } from 'express';
-import mongoose from 'mongoose';
 import compression from 'compression';
 import cors from 'cors';
 import morgan from 'morgan';
@@ -9,6 +8,8 @@ dotenv.config();
 
 import { createLinePrint, generateSecretKey } from './utils/devHelper';
 import connectDatabase from './config/connectDB';
+import usersRoute from './routes/users.route';
+import { pathBuilder } from './utils/helpers';
 
 const app: Application = express();
 const port = process.env.PORT || 3030;
@@ -21,18 +22,36 @@ app.use(express.urlencoded({ extended: false }));
 app.use(compression());
 
 app.get('/', (req: Request, res: Response) => {
-    res.json({ message: 'Server is Running' });
+    res.json({
+        status: res.statusCode,
+        message: 'Welcome to Homepage',
+        url: req.url,
+        meta: null,
+        data: null,
+    });
 });
 
-app.get('/health', (req: Request, res: Response) => {
-    res.json({ message: 'health is okay' });
+app.get(pathBuilder('/health', 'V1'), (req: Request, res: Response) => {
+    res.json({
+        status: res.statusCode,
+        message: 'health is okay',
+        url: req.url,
+        meta: null,
+        data: null,
+    });
 });
-app.get('/gen', async (req: Request, res: Response) => {
-    res.json({ message: await generateSecretKey() });
+
+app.get(pathBuilder('/secret', 'V2'), async (req: Request, res: Response) => {
+    res.json({
+        status: res.statusCode,
+        message: 'Secret key',
+        url: req.url,
+        meta: null,
+        data: await generateSecretKey(),
+    });
 });
-app.get('/v1/health', (req: Request, res: Response) => {
-    res.json({ message: 'v1 health is okay' });
-});
+
+app.use(pathBuilder('/users', 'V1'), usersRoute);
 
 const startServer = async () => {
     app.listen(process.env.PORT, () => {
