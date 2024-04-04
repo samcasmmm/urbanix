@@ -1,22 +1,21 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import {StyleSheet} from 'react-native';
 import Main from './src/Main';
+import {Provider} from 'react-redux';
+import store from './src/app/store';
 
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 function App(): React.JSX.Element {
   return (
     <>
-      <Main />
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          <Main />
+        </QueryClientProvider>
+      </Provider>
     </>
   );
 }
-
-const styles = StyleSheet.create({});
 
 export default App;
