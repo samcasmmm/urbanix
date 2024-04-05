@@ -1,6 +1,9 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {
+  NativeStackNavigationProp,
+  createNativeStackNavigator,
+} from '@react-navigation/native-stack';
 import About from './screens/About';
 import SplashScreen from './screens/SplashScreen';
 
@@ -13,6 +16,8 @@ type RootStackParamList = {
   Splash: undefined;
   About: undefined;
 };
+
+export type NavigationType = NativeStackNavigationProp<RootStackParamList>;
 
 const Routes: Route[] = [
   {name: 'Splash', component: SplashScreen},
