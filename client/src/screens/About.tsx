@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {Button, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Button, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {NavigationType} from '../Main';
 
 const About = () => {
@@ -10,7 +10,8 @@ const About = () => {
     <View style={styles.container}>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('Splash');
+          navigation.canGoBack();
+
           console.log('yes');
         }}
         style={{backgroundColor: 'purple', padding: 10, width: 100}}
