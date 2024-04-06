@@ -1,10 +1,21 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Button, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {NavigationType} from '../Main';
 
 const About = () => {
+  const navigation = useNavigation<NavigationType>();
+
   return (
     <View style={styles.container}>
-      <Text>About Screen</Text>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Splash');
+          console.log('yes');
+        }}
+        style={{backgroundColor: 'purple', padding: 10, width: 100}}
+      />
+      <Button title="asd" onPress={() => console.log('yes')} />
     </View>
   );
 };

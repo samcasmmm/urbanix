@@ -29,7 +29,9 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const Main = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={'Splash'}>
+      <Stack.Navigator
+        initialRouteName={'Splash'}
+        screenOptions={{headerShown: false, navigationBarHidden: false}}>
         {Routes.map((item, index) => (
           <Stack.Screen
             key={index}
