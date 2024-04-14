@@ -48,9 +48,6 @@ Contributions to the Urbanix project are welcome! Developers can fork the reposi
 ## License
 Urbanix is licensed under the MIT License, granting users the freedom to use, modify, and distribute the software as they see fit. See the `LICENSE` file for more details.
 
-## Contact
-
-
 ## Design
 [LINK](https://www.figma.com/community/file/1096718124964343229)
 
