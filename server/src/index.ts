@@ -9,6 +9,7 @@ dotenv.config();
 import { createLinePrint, generateSecretKey } from './utils/devHelper';
 import connectDatabase from './config/connectDB';
 import usersRoute from './routes/users.route';
+import propertiesRoute from './routes/properties.route';
 import { pathBuilder } from './utils/helpers';
 
 const app: Application = express();
@@ -52,6 +53,7 @@ app.get(pathBuilder('/secret', 'V2'), async (req: Request, res: Response) => {
 });
 
 app.use(pathBuilder('/users', 'V1'), usersRoute);
+app.use(pathBuilder('/properties', 'V1'), propertiesRoute);
 
 const startServer = async () => {
     app.listen(process.env.PORT, () => {
