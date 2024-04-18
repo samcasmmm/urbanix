@@ -21,15 +21,13 @@ interface IProperties extends Document {
     thumbnail: string;
     mainPhoto: string;
     morePhotos: string[];
-    sku: string; // Stock Keeping Unit
     developer: {
         name: string;
         contact: string;
     };
-    broker: string; // Assigned broker
+    broker: string;
 }
 
-// Define schema for Property document
 const propertiesSchema: Schema = new Schema({
     title: { type: String, required: true },
     description: { type: String, required: true },
@@ -51,7 +49,6 @@ const propertiesSchema: Schema = new Schema({
     thumbnail: { type: String, required: true },
     mainPhoto: { type: String, required: true },
     morePhotos: { type: [String], required: false },
-    sku: { type: String, required: true },
     developer: {
         name: { type: String, required: true },
         contact: { type: String, required: true },
