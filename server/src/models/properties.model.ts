@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
 interface IProperties extends Document {
-    title: string;
+    name: string;
     description: string;
     price: number;
     location: {
@@ -18,6 +18,9 @@ interface IProperties extends Document {
     bathrooms: number;
     area: number;
     amenities: string[];
+    possession: string;
+    isLoanAvailable: boolean;
+    availability: 'Available' | 'Sold';
     thumbnail: string;
     mainPhoto: string;
     morePhotos: string[];
@@ -25,11 +28,34 @@ interface IProperties extends Document {
         name: string;
         contact: string;
     };
-    broker: string;
+    broker: {
+        name: string;
+        contact: string;
+    };
 }
 
+interface IPropertiesConfigurations extends Document {
+    name: string;
+    price: number;
+}
+
+const propertiesConfigurations: Schema = new Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    price: {
+        type: Number,
+        required: true,
+    },
+    propertyId: {
+        type: Schema.Types.ObjectId,
+        ref: 'properties',
+    },
+});
+
 const propertiesSchema: Schema = new Schema({
-    title: { type: String, required: true },
+    name: { type: String, required: true },
     description: { type: String, required: true },
     price: { type: Number, required: true },
     location: {
@@ -46,6 +72,9 @@ const propertiesSchema: Schema = new Schema({
     bathrooms: { type: Number, required: true },
     area: { type: Number, required: true },
     amenities: { type: [String], required: false },
+    possession: { type: String, required: false },
+    isLoanAvailable: { type: String, required: false },
+    availability: { type: String, required: false },
     thumbnail: { type: String, required: true },
     mainPhoto: { type: String, required: true },
     morePhotos: { type: [String], required: false },
@@ -53,8 +82,11 @@ const propertiesSchema: Schema = new Schema({
         name: { type: String, required: true },
         contact: { type: String, required: true },
     },
-    broker: { type: String, required: true },
+    broker: {
+        name: { type: String, required: true },
+        contact: { type: String, required: true },
+    },
 });
 
-const Properties = mongoose.model<IProperties>('Property', propertiesSchema);
+const Properties = mongoose.model<IProperties>('properties', propertiesSchema);
 export default Properties;
