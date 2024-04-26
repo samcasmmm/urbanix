@@ -18,7 +18,15 @@ interface IProperties extends Document {
     bathrooms: number;
     area: number;
     amenities: string[];
-    possession: string;
+    possession:
+        | 'Ready to move in'
+        | 'Under construction'
+        | 'Pre-launch'
+        | 'Launching soon'
+        | 'Possession offered'
+        | 'Possession expected'
+        | String
+        | Date;
     isLoanAvailable: boolean;
     availability: 'Available' | 'Sold';
     thumbnail: string;
@@ -72,9 +80,13 @@ const propertiesSchema: Schema = new Schema({
     bathrooms: { type: Number, required: true },
     area: { type: Number, required: true },
     amenities: { type: [String], required: false },
-    possession: { type: String, required: false },
-    isLoanAvailable: { type: String, required: false },
-    availability: { type: String, required: false },
+    possession: { type: Schema.Types.Mixed, required: true },
+    isLoanAvailable: { type: Boolean, required: false },
+    availability: {
+        type: String,
+        enum: ['Available', 'Sold'],
+        required: false,
+    },
     thumbnail: { type: String, required: true },
     mainPhoto: { type: String, required: true },
     morePhotos: { type: [String], required: false },
