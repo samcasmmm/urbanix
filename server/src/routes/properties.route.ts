@@ -18,6 +18,10 @@ router.get('/health', (req, res) => {
     });
 });
 
-router.get('/');
+router.post('/', createProperty);
+router.get('/', getAllProperties);
+router.get('/id', getProperty);
+router.put('/id', updateProperty);
+router.delete('/id', deleteProperty);
 
 export default router;
