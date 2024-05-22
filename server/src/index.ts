@@ -58,7 +58,7 @@ app.use(pathBuilder('/properties', 'V1'), propertiesRoute);
 const startServer = async () => {
     app.listen(process.env.PORT, () => {
         createLinePrint(50);
-        console.log(`Server at http://localhost:7000`);
+        console.log(`Server at http://localhost:8000`);
         connectDatabase();
     });
 };
