@@ -1,4 +1,11 @@
 import express from 'express';
+import {
+    createProperty,
+    updateProperty,
+    getProperty,
+    getAllProperties,
+    deleteProperty,
+} from '../controllers/properties.controller';
 const router = express.Router();
 
 router.get('/health', (req, res) => {
@@ -10,5 +17,7 @@ router.get('/health', (req, res) => {
         data: null,
     });
 });
+
+router.get('/');
 
 export default router;
