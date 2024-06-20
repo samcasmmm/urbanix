@@ -1,53 +1,79 @@
-# Urbanix App
+This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-## Overview
-Urbanix is a modern application designed to streamline the process of buying and selling properties. Built using the MERN stack for web development and React Native for mobile platforms, Urbanix offers users a seamless experience across various devices. This Git repository serves as the central hub for the development, collaboration, and version control of the Urbanix project.
+# Getting Started
 
-## Key Features
-- **Property Listings:** Browse through a vast collection of properties available for sale or rent, filtered by location, price range, and property type.
-- **User Authentication:** Secure authentication and authorization mechanisms ensure that only authenticated users can access certain features, such as adding properties for sale or contacting sellers.
-- **Interactive Maps:** Integration with mapping services provides users with a visual representation of property locations, nearby amenities, and neighborhood insights.
-- **Real-time Chat:** Facilitate communication between buyers and sellers through a real-time messaging system, enabling negotiation and clarification of property details.
-- **Favorites and Notifications:** Users can save their favorite properties for later viewing and receive notifications for new listings matching their preferences.
-- **Payment Gateway Integration:** Seamless integration with popular payment gateways allows users to make secure transactions directly through the app.
-- **Admin Dashboard:** An intuitive dashboard empowers administrators to manage listings, user accounts, and reported content efficiently.
+>**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Repository Structure
-### Backend (MERN Stack):
-- `/server`: Contains server-side code written in Node.js, Express.js, and MongoDB.
-- `/models`: Data models and schemas for MongoDB collections.
-- `/routes`: API routes for handling various HTTP requests.
-- `/controllers`: Logic for handling API requests and interfacing with the database.
-- `/config`: Configuration files for environment variables, database connections, etc.
-- `/middleware`: Custom middleware functions for request processing and authentication.
-- `/tests`: Unit and integration tests for ensuring code quality and reliability.
-- `/scripts`: Automation scripts for deployment, database seeding, etc.
+## Step 1: Start the Metro Server
 
-### Frontend (React Native):
-- `/client`: Contains client-side code written in React Native for iOS and Android platforms.
-- `/src/components`: Reusable React components for building the user interface.
-- `/src/screens`: Individual screens representing different views and functionalities of the app.
-- `/src/utils`: Utility functions, helper classes, and constants used throughout the frontend code.
-- `/src/styles`: Global stylesheets and theme configurations for consistent UI styling.
-- `/src/context`: React context providers for managing global state and user authentication.
-- `/src/assets`: Static assets such as images, icons, and fonts used in the app.
-- `/src/hooks`: Custom React hooks for handling side effects and state management.
-- `/src/services`: Service modules for interacting with the backend API endpoints.
+First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
-## Development Workflow
-1. **Feature Branches:** Developers create feature branches for each new feature or bug fix, following a descriptive naming convention (e.g., `feature/add-property-listing`, `bugfix/user-authentication`).
-2. **Pull Requests:** Once development is complete, developers submit pull requests from their feature branches to the `develop` branch for review.
-3. **Code Reviews:** Peer code reviews are conducted to ensure code quality, adherence to coding standards, and proper implementation of features.
-4. **Continuous Integration:** Automated tests are run using CI/CD pipelines to validate changes and prevent regressions before merging into the main branches.
-5. **Release Branches:** When a set of features is ready for release, a release branch is created from `develop` for final testing and deployment.
-6. **Deployment:** After successful testing, changes are merged into the `master` branch and deployed to production environments.
+To start Metro, run the following command from the _root_ of your React Native project:
 
-## Contributing
-Contributions to the Urbanix project are welcome! Developers can fork the repository, create their own branches for development or bug fixes, and submit pull requests for review. Detailed contribution guidelines are provided in the project's `CONTRIBUTING.md` file.
+```bash
+# using npm
+npm start
 
-## License
-Urbanix is licensed under the MIT License, granting users the freedom to use, modify, and distribute the software as they see fit. See the `LICENSE` file for more details.
+# OR using Yarn
+yarn start
+```
 
-## Design
-[LINK](https://www.figma.com/community/file/1096718124964343229)
+## Step 2: Start your Application
 
+Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+
+### For Android
+
+```bash
+# using npm
+npm run android
+
+# OR using Yarn
+yarn android
+```
+
+### For iOS
+
+```bash
+# using npm
+npm run ios
+
+# OR using Yarn
+yarn ios
+```
+
+If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+
+This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+
+## Step 3: Modifying your App
+
+Now that you have successfully run the app, let's modify it.
+
+1. Open `App.tsx` in your text editor of choice and edit some lines.
+2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+
+   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+
+## Congratulations! :tada:
+
+You've successfully run and modified your React Native App. :partying_face:
+
+### Now what?
+
+- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
+- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+
+# Troubleshooting
+
+If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+
+# Learn More
+
+To learn more about React Native, take a look at the following resources:
+
+- [React Native Website](https://reactnative.dev) - learn more about React Native.
+- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
+- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
+- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
+- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
